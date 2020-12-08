@@ -1,0 +1,470 @@
+/*
+    Created on : Nov 22, 2020, 1:09:13 PM
+    Author     : Melissa Isaacson
+*/
+@import url("https://fonts.googleapis.com/css2?family=Castoro&display=swap");
+/* MAIN CSS */
+html {
+  font-family: Castoro, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 100%; }
+
+body {
+  width: 100%;
+  margin-top: 0.9375em;
+  font-size: 1.125em;
+  line-height: 1.3125em;
+  color: #1a191a; }
+
+h1 {
+  font-size: 2.5em; }
+
+h2 {
+  font-size: 2.375em; }
+
+h3 {
+  font-size: 2.25em; }
+
+h4 {
+  font-size: 2.125em; }
+
+h5 {
+  font-size: 2em; }
+
+h2 {
+  text-align: center; }
+
+a:link {
+  color: #B8A9A7; }
+a:active {
+  color: #D9D2CA; }
+a:visited {
+  color: #dad4a1; }
+a:hover {
+  color: #857B7D; }
+
+blockquote {
+  font-size: 1.25em;
+  color: #B8A9A7; }
+
+footer {
+  padding-top: 6.25em; }
+  footer p {
+    font-size: 1em;
+    font-weight: bold; }
+  footer ul {
+    list-style-type: none;
+    padding-left: 0; }
+    footer ul li {
+      font-size: 0.875em; }
+      footer ul li a {
+        text-decoration: none; }
+
+/* GRID */
+.container {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.container-fluid {
+  margin: 0;
+  max-width: 100%; }
+
+.row:after {
+  display: block;
+  clear: both;
+  content: ''; }
+
+.row + .row {
+  margin-top: 3%; }
+
+[class^="col-"] {
+  float: left;
+  margin-right: 3%;
+  box-sizing: border-box; }
+  [class^="col-"]:last-child {
+    margin-right: 0%; }
+
+.col-1 {
+  width: 5.5833333333%; }
+
+.col-2 {
+  width: 14.1666666667%; }
+
+.col-3 {
+  width: 22.75%; }
+
+.col-4 {
+  width: 31.3333333333%; }
+
+.col-5 {
+  width: 39.9166666667%; }
+
+.col-6 {
+  width: 48.5%; }
+
+.col-7 {
+  width: 57.0833333333%; }
+
+.col-8 {
+  width: 65.6666666667%; }
+
+.col-9 {
+  width: 74.25%; }
+
+.col-10 {
+  width: 82.8333333333%; }
+
+.col-11 {
+  width: 91.4166666667%; }
+
+.col-12 {
+  width: 100%; }
+
+/* Navigation */
+header input {
+  border: 0;
+  border-bottom: 1px solid #1a191a;
+  line-height: 2.8125em; }
+header button {
+  margin-top: 3.125em;
+  padding: 0.625em;
+  background: none;
+  border: 0; }
+header button.join-button {
+  width: 6.25em;
+  border: 1px solid #B8A9A7; }
+  header button.join-button:hover {
+    background: #B8A9A7;
+    color: #E8E4DF; }
+header .search {
+  margin-top: 3.125em;
+  width: 18.75em; }
+header .logo {
+  margin-left: 3.125em; }
+
+header nav ul {
+  margin: 0;
+  list-style-type: none;
+  background-color: #DFDAE3; }
+  header nav ul li {
+    display: inline-block;
+    height: 100%;
+    padding: 0.9375em; }
+    header nav ul li a, header nav ul li a:link, header nav ul li a:visited, header nav ul li a:active {
+      height: 100%;
+      width: 100%;
+      text-decoration: none;
+      color: #1a191a; }
+    header nav ul li:hover a {
+      color: #998671; }
+
+.did-you-know {
+  padding: 0.9375em;
+  padding-left: 1.875em;
+  background-color: #f3f1ee; }
+  .did-you-know li {
+    font-size: 0.875em;
+    line-height: 1.75em; }
+  .did-you-know h5 {
+    margin: 0 0 0.9375em 0;
+    font-size: 1.5em; }
+
+.thumbnail {
+  width: 100%;
+  height: 9.375em; }
+  .thumbnail p {
+    position: relative;
+    top: 11.875em;
+    width: 90%;
+    background: #fff;
+    font-size: 0.6875em;
+    color: #B8A9A7; }
+
+.bottom-thumbnails {
+  margin-top: 6.25em; }
+
+/* Images */
+#animal-statues {
+  width: 100%;
+  height: 18.75em;
+  background: #E8E4DF url("../images/animalStatues01.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center; }
+  #animal-statues h3 {
+    display: inline;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+    background: white;
+    line-height: 2.125em; }
+
+#lion-statue {
+  width: 100%;
+  height: 18.75em;
+  background: #E8E4DF url("../images/lionStatue01.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center; }
+  #lion-statue h3 {
+    display: inline;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+    background: white;
+    line-height: 2.125em; }
+
+#stag-statue {
+  width: 100%;
+  height: 18.75em;
+  background: #E8E4DF url("../images/deer01.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center; }
+  #stag-statue h3 {
+    display: inline;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+    background: white;
+    line-height: 2.125em; }
+
+#wolf01 {
+  width: 100%;
+  height: 18.75em;
+  background: #E8E4DF url("../images/wolf01.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center; }
+  #wolf01 h3 {
+    display: inline;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+    background: white;
+    line-height: 2.125em; }
+
+#wolf02 {
+  width: 100%;
+  height: 18.75em;
+  background: #E8E4DF url("../images/wolf02.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center; }
+  #wolf02 h3 {
+    display: inline;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+    background: white;
+    line-height: 2.125em; }
+
+#wolf03 {
+  width: 100%;
+  height: 18.75em;
+  background: #E8E4DF url("../images/wolf03.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center; }
+  #wolf03 h3 {
+    display: inline;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+    background: white;
+    line-height: 2.125em; }
+
+#wolf04 {
+  width: 100%;
+  height: 18.75em;
+  background: #E8E4DF url("../images/wolf04.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center; }
+  #wolf04 h3 {
+    display: inline;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+    background: white;
+    line-height: 2.125em; }
+
+#wolf05 {
+  width: 100%;
+  height: 18.75em;
+  background: #E8E4DF url("../images/wolf05.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center; }
+  #wolf05 h3 {
+    display: inline;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+    background: white;
+    line-height: 2.125em; }
+
+#fox01 {
+  width: 100%;
+  height: 18.75em;
+  background: #E8E4DF url("../images/fox01.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center; }
+  #fox01 h3 {
+    display: inline;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+    background: white;
+    line-height: 2.125em; }
+
+#fox02 {
+  width: 100%;
+  height: 18.75em;
+  background: #E8E4DF url("../images/fox02.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center; }
+  #fox02 h3 {
+    display: inline;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+    background: white;
+    line-height: 2.125em; }
+
+#fox03 {
+  width: 100%;
+  height: 18.75em;
+  background: #E8E4DF url("../images/fox03.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center; }
+  #fox03 h3 {
+    display: inline;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+    background: white;
+    line-height: 2.125em; }
+
+#fox04 {
+  width: 100%;
+  height: 18.75em;
+  background: #E8E4DF url("../images/fox04.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center; }
+  #fox04 h3 {
+    display: inline;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+    background: white;
+    line-height: 2.125em; }
+
+#raven01 {
+  width: 100%;
+  height: 18.75em;
+  background: #E8E4DF url("../images/raven01.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center; }
+  #raven01 h3 {
+    display: inline;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+    background: white;
+    line-height: 2.125em; }
+
+#crow01 {
+  width: 100%;
+  height: 18.75em;
+  background: #E8E4DF url("../images/crow01.jpg") center center no-repeat;
+  background-size: cover;
+  text-align: center; }
+  #crow01 h3 {
+    display: inline;
+    position: relative;
+    top: 150px;
+    padding: 15px;
+    background: white;
+    line-height: 2.125em; }
+
+#statue01 {
+  background: #fff url("../images/statue01.jpg") center center no-repeat;
+  background-size: cover; }
+
+#statue02 {
+  background: #fff url("../images/statue02.jpg") center center no-repeat;
+  background-size: cover; }
+
+#iliadAndOdyssey {
+  background: #fff url("../images/iliadAndOdyssey.jpg") center center no-repeat;
+  background-size: cover; }
+
+#ruins01 {
+  background: #fff url("../images/ruins01.jpg") center center no-repeat;
+  background-size: cover; }
+
+/* CUSTOM */
+/* -- font -- */
+.b {
+  font-weight: bold; }
+
+.text-small {
+  font-size: 0.875em; }
+
+.primary {
+  color: #857B7D; }
+
+.secondary {
+  color: #B8A9A7; }
+
+.highlight {
+  color: #D9D2CA; }
+
+/* -- images -- */
+img.left {
+  width: 31.25em;
+  margin-left: -6.25em; }
+
+/* -- margins -- */
+.m-t-70 {
+  margin-top: 4.375em; }
+
+/* -- paragraphs -- */
+p.title {
+  color: #B8A9A7;
+  font-size: 1.125em;
+  text-align: center;
+  border-bottom: 1px solid #B8A9A7; }
+
+p.small-title {
+  color: #D9D2CA; }
+
+p.l {
+  font-size: 1.25em;
+  line-height: 1.375em; }
+
+p.two-col {
+  column-count: 2; }
+
+p.drop-cap:first-letter {
+  float: left;
+  padding-top: 0.3125em;
+  padding-right: 0.125em;
+  color: #998671;
+  font-size: 4.6875em; }
+
+/* MEDIA QUERIES */
+/* On screens that are 1249px wide or less, go from four columns to two columns */
+@media screen and (max-width: 1249px) {
+  header .search {
+    width: 12.5em; } }
+/* On screens that are 890px wide or less, go from four columns to two columns */
+@media screen and (max-width: 890px) {
+  header .search {
+    width: 21.875em; }
+
+  [class^="col-"] {
+    float: none;
+    margin-right: 3%;
+    box-sizing: border-box;
+    width: 100%; }
+    [class^="col-"]:last-child {
+      margin-right: 0%; } }
+/* On screens that are 598px wide or less, go from four columns to two columns */
+@media screen and (max-width: 598px) {
+  header nav ul li {
+    display: block; } }
+
+/*# sourceMappingURL=main.css.map */

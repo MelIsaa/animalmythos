@@ -1,0 +1,412 @@
+/*
+    Created on : Nov 22, 2020, 1:09:13 PM
+    Author     : Melissa Isaacson
+*/
+
+//------- COLOR PALETTE
+// Paper Tones via
+// https://www.design-seeds.com/seasons/summer/paper-tones/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A%20DesignSeeds%20%28design%20seeds%29#_a5y_p=3482003
+
+$pale-white: #E8E4DF;
+$beige: #D9D2CA;
+$tan: #B8A9A7;
+$grey-purple: #857B7D;
+$dark-grey: #A19CA1;
+$light-grey: #DFDAE3;
+$black: #1a191a;
+
+$primary: $grey-purple;
+$secondary: $tan;
+$highlight: $beige;
+$nav-bg: $light-grey;
+$nav-link: $black;
+$nav-hover: $tan;
+
+//------- FONTS
+
+@import url('https://fonts.googleapis.com/css2?family=Castoro&display=swap');
+
+$main-fonts: Castoro, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+//------- Pixel to EM
+//  https://css-tricks.com/snippets/sass/px-to-em-functions/
+
+$browser-context: 16;
+
+@function em($pixels, $context: $browser-context) {
+    @if(unitless($pixels)) {
+        $pixels: $pixels * 1px;
+    }
+    
+    @if(unitless($context)) {
+        $context: $context * 1px;
+    }
+    
+    @return $pixels / $context * 1em;
+}
+
+/* MAIN CSS */
+
+html {
+    font-family: $main-fonts;
+    font-size: 100%;
+}
+
+body {
+    width: 100%;
+    margin-top: em(15);
+    font-size: em(18);
+    line-height: em(21);
+    color: $black;
+}
+
+// Headings
+$base-font-size: 40;
+@for $i from 1 through 5 {
+    h#{$i}{
+        font-size: em($base-font-size);
+    }
+    
+    $base-font-size: $base-font-size - 2;
+}
+
+h2 {
+    text-align: center;
+}
+
+a {
+    &:link {
+        color: $tan;
+    }
+    &:active {
+        color: $beige;
+    }
+    &:visited {
+        color: #dad4a1;
+    }
+    &:hover {
+        color: $grey-purple;
+    }
+}
+
+blockquote {
+    font-size: em(20);
+    color: $tan;
+}
+
+footer {
+    padding-top: em(100);
+    p {
+        font-size: em(16);
+        font-weight: bold;
+    }
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        li {
+            font-size: em(14);
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/* GRID */
+// Adjusted grid code formula via:
+// https://inspirationalpixels.com/grid-system-with-sass/
+
+$max-w: 1200px;
+.container {
+    max-width: $max-w;
+    margin: 0 auto;
+}
+
+.container-fluid {
+    margin: 0;
+    max-width: 100%;
+}
+
+%clearfix:after {
+    display: block;
+    clear: both;
+    content: '';
+}
+
+$grid-spacing: 3%;
+
+.row {
+    @extend %clearfix;
+    & + & {
+        margin-top: $grid-spacing;
+    }
+}
+
+[class^="col-"] {
+    float: left;
+    margin-right: $grid-spacing;
+    box-sizing: border-box;
+    
+    &:last-child {
+        margin-right: 0%;
+    }
+}
+
+// -- the for loop
+$columns: 12;
+$count: 11;
+
+@for $i from 1 through $columns {
+    @if $i == 12 {
+        .col-#{$i} {
+            width: 100%;
+        }
+    }
+    @else {
+        .col-#{$i} {
+            width: (100% / ($columns / $i)) - ($grid-spacing * $count / $columns);
+        }
+    }
+    $count: $count - 1;
+}
+
+/* Navigation */
+header {
+    & input {
+        border: 0;
+        border-bottom: 1px solid $black;
+        line-height: em(45px);
+    }
+    & button {
+        margin-top: em(50);
+        padding: em(10);
+        background: none;
+        border: 0;
+    }
+    & button.join-button {
+        width: em(100px);
+        border: 1px solid $secondary;
+        &:hover {
+            background: $secondary;
+            color: $pale-white;
+        }
+    }
+    .search {
+        margin-top: em(50);
+        width: em(300);
+    }
+    .logo {
+        margin-left: em(50);
+    }
+}
+header nav {
+    & ul {
+        margin: 0;
+        list-style-type: none;
+        background-color: $nav-bg;
+        & li {
+            display: inline-block;
+            height: 100%;
+            padding: em(15px);
+            & a, & a:link, & a:visited, & a:active {
+                height: 100%;
+                width: 100%;
+                text-decoration: none;
+                color: $nav-link;
+            }
+            &:hover {
+                // background-color: $nav-hover;
+            }
+            &:hover a {
+                color: darken($beige, 30);
+            }
+        }
+    }
+}
+
+.did-you-know {
+    padding: em(15);
+    padding-left: em(30);
+    background-color: lighten($pale-white, 5);
+    li {
+        font-size: em(14);
+        line-height: em(28);
+    }
+    h5 {
+        margin: 0 0 em(15) 0;
+        font-size: em(24);
+    }
+}
+
+.thumbnail {
+    width: 100%;
+    height: em(150);
+    & p {
+        position: relative;
+        top: em(190);
+        width: 90%;
+        background: #fff;
+        font-size: em(11);
+        color: $tan;
+    }
+}
+
+.bottom-thumbnails {
+    margin-top: em(100);
+}
+
+@mixin wideImages($image) {
+    width: 100%;
+    height: em(300);
+    background: $pale-white url("../images/#{$image}") center center no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+@mixin thumbnailImages($image) {
+    background: #fff url("../images/#{$image}") center center no-repeat;
+    background-size: cover;
+}
+
+/* Images */
+
+$images-headers: (
+    'animal-statues': 'animalStatues01.jpg',
+    'lion-statue': 'lionStatue01.jpg',
+    'stag-statue': 'deer01.jpg',
+    'wolf01': 'wolf01.jpg',
+    'wolf02': 'wolf02.jpg',
+    'wolf03': 'wolf03.jpg',
+    'wolf04': 'wolf04.jpg',
+    'wolf05': 'wolf05.jpg',
+    'fox01': 'fox01.jpg',
+    'fox02': 'fox02.jpg',
+    'fox03': 'fox03.jpg',
+    'fox04': 'fox04.jpg',
+    'raven01': 'raven01.jpg',
+    'crow01': 'crow01.jpg',
+);
+
+@each $key, $value in $images-headers {
+    ##{$key} {
+        @include wideImages($value);
+        h3 {
+            display: inline;
+            position: relative;
+            top: 150px;
+            padding: 15px;
+            background: white;
+            line-height: em(34);
+        }
+    }
+}
+
+$images-thumbnails: (
+    'statue01': 'statue01.jpg',
+    'statue02': 'statue02.jpg',
+    'iliadAndOdyssey': 'iliadAndOdyssey.jpg',
+    'ruins01': 'ruins01.jpg'
+);
+
+@each $key, $value in $images-thumbnails {
+    ##{$key} {
+        @include thumbnailImages($value);
+    }
+}
+
+
+
+/* CUSTOM */
+
+/* -- font -- */
+.b {
+    font-weight: bold;
+}
+.text-small {
+    font-size: em(14);
+}
+.primary {
+    color: $primary;
+}
+.secondary {
+    color: $secondary;
+}
+.highlight {
+    color: $highlight;
+}
+
+/* -- images -- */
+img.left {
+    width: em(500);
+    margin-left: em(-100);
+}
+
+/* -- margins -- */
+.m-t-70 {
+    margin-top: em(70);
+}
+
+/* -- paragraphs -- */
+p.title {
+    color: $tan;
+    font-size: em(18);
+    text-align: center;
+    border-bottom: 1px solid $tan;
+}
+p.small-title {
+    color: $beige;
+}
+p.l {
+    font-size: em(20);
+    line-height: em(22);
+}
+p.two-col {
+    column-count: 2;
+}
+p.drop-cap:first-letter {
+    float: left;
+    padding-top: em(5);
+    padding-right: em(2);
+    color: darken($beige, 30);
+    font-size: em(75);
+}
+
+/* MEDIA QUERIES */
+/* On screens that are 1249px wide or less, go from four columns to two columns */
+@media screen and (max-width: 1249px) {
+    header {
+        .search {
+            width: em(200);
+        }
+    }
+}
+
+/* On screens that are 890px wide or less, go from four columns to two columns */
+@media screen and (max-width: 890px) {
+    header {
+        .search {
+            width: em(350);
+        }
+    }
+    [class^="col-"] {
+        float: none;
+        margin-right: $grid-spacing;
+        box-sizing: border-box;
+        width: 100%;
+        &:last-child {
+            margin-right: 0%;
+        }
+    }
+}
+
+
+/* On screens that are 598px wide or less, go from four columns to two columns */
+@media screen and (max-width: 598px) {
+    header nav {
+        ul {
+            li {
+                display: block;
+            }
+        }
+    }
+}
